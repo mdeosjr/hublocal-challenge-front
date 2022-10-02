@@ -21,7 +21,7 @@ const Input = styled.input<ActiveProps>`
    padding: 0 16px;
    display: flex;
    flex-direction: row;
-   background: ${props => (props.active ? '#FFFFFF' : '#F2F2F2')};
+   background: ${props => (props.active ? '#FFFFFF' : '  ')};
    border: 1px solid rgba(0, 0, 0, 0.23);
    border-radius: 4px;
    font: normal 20px 'Barlow';
@@ -48,10 +48,6 @@ const Button = styled.button<ActiveProps>`
    cursor: pointer;
    ${props => !props.active && 'pointer-events: none;'}
    ${props => !props.active && 'opacity: 0.7;'}
-   img {
-      width: 4.5vw;
-      height: 2.5vh;
-   }
 `
 
 const Buttons = styled.div`
