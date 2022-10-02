@@ -21,7 +21,7 @@ const Input = styled.input<ActiveProps>`
    padding: 0 16px;
    display: flex;
    flex-direction: row;
-   background: ${props => (props.active ? '#FFFFFF' : '  ')};
+   background: ${props => (props.active ? '#FFFFFF' : '#F2F2F2')};
    border: 1px solid rgba(0, 0, 0, 0.23);
    border-radius: 4px;
    font: normal 20px 'Barlow';

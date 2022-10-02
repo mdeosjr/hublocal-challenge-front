@@ -15,6 +15,11 @@ export interface LoginData {
    password: string
 }
 
+export type UserData = {
+   name: string
+   access_token: string
+}
+
 function SignIn() {
    const [userData, setUserData] = useState<LoginData>({
       email: '',
@@ -29,11 +34,11 @@ function SignIn() {
       e.preventDefault()
 
       try {
-         setButton(false)
-         setInput(false)
-         const { data } = await api.login({ ...userData })
-         loginSucess(data.access_token)
-      } catch (e: Error | AxiosError | any) {
+			setButton(false)
+			setInput(false)
+			const { data } = await api.login({ ...userData })
+			loginSucess(data)
+		} catch (e: Error | AxiosError | any) {
          toast.warn('User or password incorrect!', {
             position: 'top-right',
             autoClose: 1800,
@@ -49,10 +54,10 @@ function SignIn() {
       }
    }
 
-   function loginSucess(token: string) {
-      signIn(token)
-      navigate('/home')
-   }
+   function loginSucess(userData: UserData) {
+		signIn(userData)
+		navigate('/home')
+	}
 
    function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
       setUserData({ ...userData, [e.target.name]: e.target.value })
