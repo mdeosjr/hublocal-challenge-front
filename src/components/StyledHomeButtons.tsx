@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import ButtonUnstyled, { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled'
+import ButtonUnstyled from '@mui/base/ButtonUnstyled'
 
 export const HomePageButton = styled(ButtonUnstyled)`
 	all: unset;

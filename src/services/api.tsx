@@ -25,8 +25,14 @@ async function validateToken(token: string) {
    return axios.post(`${BASE_URL}/validate-token`, {}, config)
 }
 
+async function fetchCompanies(token: string) {
+   const config = createConfig(token)
+	return axios.get(`${BASE_URL}/companies`, config)
+}
+
 export const api = {
    createUser,
    login,
-   validateToken
+   validateToken,
+   fetchCompanies
 }
