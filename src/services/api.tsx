@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { Company } from '../pages/Companies/companiesContent'
 import { LoginData } from '../pages/SignIn'
 import { UserData } from '../pages/SignUp'
 
@@ -30,6 +31,11 @@ async function fetchCompanies(token: string) {
 	return axios.get(`${BASE_URL}/companies`, config)
 }
 
+async function createCompany(token: string, company: Company) {
+	const config = createConfig(token)
+	return axios.post(`${BASE_URL}/companies`, company, config)
+}
+
 async function fetchLocals(token: string) {
 	const config = createConfig(token)
 	return axios.get(`${BASE_URL}/locals`, config)
@@ -40,5 +46,6 @@ export const api = {
    login,
    validateToken,
    fetchCompanies,
+   createCompany,
    fetchLocals
 }

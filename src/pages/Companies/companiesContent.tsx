@@ -12,13 +12,13 @@ import ResponsibleContent, {
 	Responsible
 } from '../../components/ResponsibleContent'
 
-interface Company {
-	id: number
+export interface Company {
+	id?: number
 	name: string
 	CNPJ: string
 	description: string
-	userId: number
-	createdAt: Date
+	userId?: number
+	createdAt?: Date
 	responsibles: any
 }
 

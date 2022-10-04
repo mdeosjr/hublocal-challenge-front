@@ -7,10 +7,10 @@ export interface Responsible {
 	name: string
 	phone: string
 	address: string
-	createdAt: Date
-	isMain: boolean
-	localId: number
-	companyId: number
+	createdAt?: Date
+	isMain?: boolean
+	localId?: number
+	companyId?: number
 }
 
 function ResponsibleContent({ responsible }: ResponsibleProps) {
