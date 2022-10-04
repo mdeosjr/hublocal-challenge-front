@@ -9,16 +9,21 @@ function ButtonGroup({ value, setValue }: any) {
 
 	return (
 		<ToggleButtonGroup
-			color='primary'
+			sx={{ border: '1px solid black' }}
 			fullWidth
 			value={value}
 			exclusive
 			onChange={handleValue}
 		>
-			<ToggleButton value='empresas'>EMPRESAS</ToggleButton>
-			<ToggleButton value='adicionar'>ADICIONAR</ToggleButton>
+			<ToggleButton value='empresas' sx={{ font: 'bold 15px Barlow' }}>
+				EMPRESAS
+			</ToggleButton>
+			<ToggleButton value='adicionar' sx={{ font: 'bold 15px Barlow' }}>
+				ADICIONAR
+			</ToggleButton>
 		</ToggleButtonGroup>
 	)
 }
 
 export default ButtonGroup
+	
