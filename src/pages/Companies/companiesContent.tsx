@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react'
-import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
+import {
+	Accordion,
+	AccordionDetails,
+	AccordionSummary,
+	Box
+} from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { api } from '../../services/api'
 import useAuth from '../../hooks/useAuth'
+import ResponsibleContent from '../../components/ResponsibleContent'
 
 interface Company {
 	id: number
@@ -25,6 +31,10 @@ interface Responsible {
 	companyId: number
 }
 
+export interface ResponsibleProps {
+	responsible: Responsible
+}
+
 function CompaniesContent() {
 	const [companiesContent, setCompaniesContent] = useState<Company[] | []>([])
 	const { auth } = useAuth()
@@ -37,23 +47,27 @@ function CompaniesContent() {
 	}, [auth, setCompaniesContent])
 
 	return (
-		<>
+		<Box sx={{ width: '100%' }}>
 			{companiesContent.map((company) => (
 				<Accordion key={company.id}>
 					<AccordionSummary expandIcon={<ExpandMoreIcon />}>
-						{company.name}
+						<p>
+							<strong>{company.name}</strong>
+						</p>
 					</AccordionSummary>
 					<AccordionDetails>
-						{company.responsibles.map((responsible: Responsible) => (
-							<>
-								<p>{responsible.name}</p>
-								<p>{responsible.address}</p>
-							</>
-						))}
+						<p>CNPJ: {company.CNPJ}</p>
+						<p>Descrição: {company.description}</p>
+						<Box sx={{paddingTop: '18px'}}>
+							<p>Responsáveis</p>
+							{company.responsibles.map((responsible: Responsible) => (
+								<ResponsibleContent responsible={responsible} />
+							))}
+						</Box>
 					</AccordionDetails>
 				</Accordion>
 			))}
-		</>
+		</Box>
 	)
 }
 

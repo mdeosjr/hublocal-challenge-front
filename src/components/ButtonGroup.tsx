@@ -9,9 +9,6 @@ function ButtonGroup({ value, setValue }: any) {
 
 	return (
 		<ToggleButtonGroup
-			sx={{
-				width: '300px'
-			}}
 			color='primary'
 			fullWidth
 			value={value}

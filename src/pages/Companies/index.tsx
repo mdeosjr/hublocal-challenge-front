@@ -6,13 +6,16 @@ import CompaniesContent from './companiesContent'
 
 function CompaniesPage() {
 	const [value, setValue] = useState('empresas')
-    console.log(value)
 
 	return (
 		<Box sx={styles.container}>
-			<ButtonGroup value={value} setValue={setValue}></ButtonGroup>
-			{value === 'empresas' && <CompaniesContent/>}
-			{value === 'adicionar' && <h1>Adicionar</h1>}
+			<Box
+				sx={styles.sectionContainer}
+			>
+				<ButtonGroup value={value} setValue={setValue} />
+				{value === 'empresas' && <CompaniesContent />}
+				{value === 'adicionar' && <h1>Adicionar</h1>}
+			</Box>
 		</Box>
 	)
 }
