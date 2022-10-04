@@ -1,4 +1,5 @@
 import { ToggleButtonGroup, ToggleButton } from '@mui/material'
+import { styles } from './GlobalStyles'
 
 function ButtonGroup({ value, setValue }: any) {
 	const handleValue = (event: any, newValue: null) => {
@@ -6,6 +7,8 @@ function ButtonGroup({ value, setValue }: any) {
 			setValue(newValue)
 		}
 	}
+
+	const path = window.location.pathname
 
 	return (
 		<ToggleButtonGroup
@@ -15,10 +18,16 @@ function ButtonGroup({ value, setValue }: any) {
 			exclusive
 			onChange={handleValue}
 		>
-			<ToggleButton value='empresas' sx={{ font: 'bold 15px Barlow' }}>
-				EMPRESAS
-			</ToggleButton>
-			<ToggleButton value='adicionar' sx={{ font: 'bold 15px Barlow' }}>
+			{path === '/empresas' ? (
+				<ToggleButton value='empresas' sx={styles.toggleButtonFont}>
+					EMPRESAS
+				</ToggleButton>
+			) : (
+				<ToggleButton value='locais' sx={styles.toggleButtonFont}>
+					LOCAIS
+				</ToggleButton>
+			)}
+			<ToggleButton value='adicionar' sx={styles.toggleButtonFont}>
 				ADICIONAR
 			</ToggleButton>
 		</ToggleButtonGroup>
@@ -26,4 +35,3 @@ function ButtonGroup({ value, setValue }: any) {
 }
 
 export default ButtonGroup
-	

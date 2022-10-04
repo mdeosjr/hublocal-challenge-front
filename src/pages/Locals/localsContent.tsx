@@ -12,12 +12,11 @@ import ResponsibleContent, {
 	Responsible
 } from '../../components/ResponsibleContent'
 
-interface Company {
+interface Local {
 	id: number
 	name: string
-	CNPJ: string
-	description: string
-	userId: number
+	address: string
+	companyId: number
 	createdAt: Date
 	responsibles: any
 }
@@ -26,39 +25,36 @@ export interface ResponsibleProps {
 	responsible: Responsible
 }
 
-function CompaniesContent() {
-	const [companiesContent, setCompaniesContent] = useState<Company[] | []>([])
+function LocalsContent() {
+	const [localsContent, setLocalsContent] = useState<Local[] | []>([])
 	const { auth } = useAuth()
 
 	useEffect(() => {
-		const promise = api.fetchCompanies(auth.access_token)
+		const promise = api.fetchLocals(auth.access_token)
 		promise.then((response) => {
-			setCompaniesContent(response.data)
+			setLocalsContent(response.data)
 		})
-	}, [auth, setCompaniesContent])
+	}, [auth, setLocalsContent])
 
 	return (
 		<Box sx={{ width: '100%' }}>
-			{companiesContent.length === 0 ? (
-				<h4>Sem empresas cadastradas!</h4>
+			{localsContent.length === 0 ? (
+				<h4>Sem locais cadastrados!</h4>
 			) : (
-				companiesContent.map((company) => (
-					<Accordion key={company.id}>
+				localsContent.map((local) => (
+					<Accordion key={local.id}>
 						<AccordionSummary expandIcon={<ExpandMoreIcon />}>
 							<p>
-								<strong>{company.name}</strong>
+								<strong>{local.name}</strong>
 							</p>
 						</AccordionSummary>
 						<AccordionDetails>
-							<p>CNPJ: {company.CNPJ}</p>
-							<p>Descrição: {company.description}</p>
+							<p>Endereço: {local.address}</p>
 							<Box sx={{ paddingTop: '18px' }}>
 								<p>Responsáveis</p>
-								{company.responsibles.map(
-									(responsible: Responsible) => (
-										<ResponsibleContent responsible={responsible} />
-									)
-								)}
+								{local.responsibles.map((responsible: Responsible) => (
+									<ResponsibleContent responsible={responsible} />
+								))}
 							</Box>
 						</AccordionDetails>
 					</Accordion>
@@ -68,4 +64,4 @@ function CompaniesContent() {
 	)
 }
 
-export default CompaniesContent
+export default LocalsContent

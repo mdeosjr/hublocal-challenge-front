@@ -1,6 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
-import { SignIn, SignUp, HomePage, CompaniesPage } from './pages/index'
+import {
+	SignIn,
+	SignUp,
+	HomePage,
+	CompaniesPage,
+	LocalsPage
+} from './pages/index'
 
 function App() {
 	return (
@@ -11,6 +17,7 @@ function App() {
 					<Route path='/sign-up' element={<SignUp />} />
 					<Route path='/home' element={<HomePage />} />
 					<Route path='/empresas' element={<CompaniesPage />} />
+					<Route path='/locais' element={<LocalsPage />} />
 				</Routes>
 			</BrowserRouter>
 		</AuthProvider>

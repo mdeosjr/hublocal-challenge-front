@@ -17,5 +17,12 @@ export const styles = {
 		flexDirection: 'column',
 		alignItems: 'center',
 		gap: '5vh'
-	}
+	},
+	responsibleSection: {
+		border: '1px solid black',
+		borderRadius: '5px',
+		padding: '4px',
+		marginY: '4px'
+	},
+	toggleButtonFont: { font: 'bold 15px Barlow' }
 }

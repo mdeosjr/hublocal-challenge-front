@@ -1,15 +1,22 @@
 import { Box } from '@mui/material'
 import { ResponsibleProps } from '../pages/Companies/companiesContent'
+import { styles } from './GlobalStyles'
+
+export interface Responsible {
+	id?: number
+	name: string
+	phone: string
+	address: string
+	createdAt: Date
+	isMain: boolean
+	localId: number
+	companyId: number
+}
 
 function ResponsibleContent({ responsible }: ResponsibleProps) {
 	return (
 		<Box
-			sx={{
-				border: '1px solid black',
-				borderRadius: '5px',
-				padding: '4px',
-				marginY: '4px'
-			}}
+			sx={styles.responsibleSection}
 		>
 			<p>
 				Nome: {responsible.name}

@@ -30,9 +30,15 @@ async function fetchCompanies(token: string) {
 	return axios.get(`${BASE_URL}/companies`, config)
 }
 
+async function fetchLocals(token: string) {
+	const config = createConfig(token)
+	return axios.get(`${BASE_URL}/locals`, config)
+}
+
 export const api = {
    createUser,
    login,
    validateToken,
-   fetchCompanies
+   fetchCompanies,
+   fetchLocals
 }
