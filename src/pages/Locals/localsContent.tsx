@@ -54,7 +54,7 @@ function LocalsContent() {
 							<Box sx={{ paddingTop: '18px' }}>
 								<p>Responsáveis</p>
 								{local.responsibles.map((responsible: Responsible) => (
-									<ResponsibleContent responsible={responsible} />
+									<ResponsibleContent key={responsible.id} responsible={responsible} />
 								))}
 							</Box>
 						</AccordionDetails>

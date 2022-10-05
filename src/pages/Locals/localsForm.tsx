@@ -66,7 +66,6 @@ function CreateLocal({ setValue }: ValueProps) {
 		name: 'responsibles',
 		control
 	})
-
 	const [button, setButton] = useState(true)
 
 	async function createLocal(e: React.FormEvent) {

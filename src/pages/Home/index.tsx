@@ -3,10 +3,16 @@ import { styles } from '../../components/GlobalStyles'
 import { HomePageButton } from '../../components/StyledHomeButtons'
 import { useNavigate } from 'react-router-dom'
 import useAuth from '../../hooks/useAuth'
+import { Button } from '../../components/Form'
 
 export default function HomePage() {
 	let navigate = useNavigate()
-	const { auth } = useAuth()
+	const { auth, signOut } = useAuth()
+
+	function logout() {
+		signOut()
+		navigate('/')
+	}
 
 	return (
 		<Box sx={styles.container}>
@@ -31,6 +37,9 @@ export default function HomePage() {
 					<HomePageButton onClick={() => navigate('/tickets')}>
 						Tickets
 					</HomePageButton>
+					<Button active={true} onClick={() => logout()}>
+						LOGOUT
+					</Button>
 				</Stack>
 			</Box>
 		</Box>
