@@ -4,7 +4,8 @@ import { Local } from '../pages/Locals/localsContent'
 import { LoginData } from '../pages/SignIn'
 import { UserData } from '../pages/SignUp'
 
-const BASE_URL = 'http://localhost:5000'
+//const BASE_URL = 'http://localhost:5000'
+const BASE_URL = 'https://hublocal.onrender.com'
 
 function createConfig(token: string | null) {
    return {
