@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { useState } from 'react'
 import ButtonGroup from '../../components/ButtonGroup'
 import { styles } from '../../components/GlobalStyles'
@@ -11,9 +11,12 @@ function CompaniesPage() {
 	return (
 		<Box sx={styles.container}>
 			<Box sx={styles.sectionContainer}>
+				<Typography sx={{ ...styles.title, paddingBottom: '0' }}>
+					EMPRESAS
+				</Typography>
 				<ButtonGroup value={value} setValue={setValue} />
 				{value === 'empresas' && <CompaniesContent />}
-				{value === 'adicionar' && <CreateCompany />}
+				{value === 'adicionar' && <CreateCompany setValue={setValue} />}
 			</Box>
 		</Box>
 	)

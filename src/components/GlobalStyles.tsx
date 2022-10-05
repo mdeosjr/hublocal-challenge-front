@@ -13,6 +13,8 @@ export const styles = {
 	},
 	sectionContainer: {
 		width: '50vw',
+		paddingTop: '25px',
+		paddingBottom: '25px',
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
@@ -24,5 +26,11 @@ export const styles = {
 		padding: '4px',
 		marginY: '4px'
 	},
-	toggleButtonFont: { font: 'bold 15px Barlow' }
+	toggleButtonFont: { font: 'bold 15px Barlow' },
+	responsibleForm: {
+		width: '100%',
+		display: 'flex',
+		gap: '20px',
+		paddingBottom: '18px'
+	}
 }

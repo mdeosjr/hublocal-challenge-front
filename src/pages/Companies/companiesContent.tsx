@@ -56,7 +56,7 @@ function CompaniesContent() {
 								<p>Responsáveis</p>
 								{company.responsibles.map(
 									(responsible: Responsible) => (
-										<ResponsibleContent responsible={responsible} />
+										<ResponsibleContent key={responsible.id} responsible={responsible} />
 									)
 								)}
 							</Box>
