@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material'
 import { useState } from 'react'
 import ButtonGroup from '../../components/ButtonGroup'
 import { styles } from '../../components/GlobalStyles'
+import StyledLink from '../../components/StyledLink'
 import CompaniesContent from './companiesContent'
 import CreateCompany from './companiesForm'
 
@@ -17,6 +18,7 @@ function CompaniesPage() {
 				<ButtonGroup value={value} setValue={setValue} />
 				{value === 'empresas' && <CompaniesContent />}
 				{value === 'adicionar' && <CreateCompany setValue={setValue} />}
+				<StyledLink to='/home'>Voltar para home</StyledLink>
 			</Box>
 		</Box>
 	)

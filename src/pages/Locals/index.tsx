@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material'
 import { useState } from 'react'
 import ButtonGroup from '../../components/ButtonGroup'
 import { styles } from '../../components/GlobalStyles'
+import StyledLink from '../../components/StyledLink'
 import LocalsContent from './localsContent'
 import CreateLocal from './localsForm'
 
@@ -16,7 +17,8 @@ function LocalsPage() {
 				</Typography>
 				<ButtonGroup value={value} setValue={setValue} />
 				{value === 'locais' && <LocalsContent />}
-				{value === 'adicionar' && <CreateLocal setValue={setValue}/>}
+				{value === 'adicionar' && <CreateLocal setValue={setValue} />}
+				<StyledLink to='/home'>Voltar para home</StyledLink>
 			</Box>
 		</Box>
 	)
