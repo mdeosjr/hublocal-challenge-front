@@ -7,6 +7,7 @@ import {
 	CompaniesPage,
 	LocalsPage
 } from './pages/index'
+import ProtectedRoutes from './components/ProtectedRoutes'
 
 function App() {
 	return (
@@ -15,9 +16,11 @@ function App() {
 				<Routes>
 					<Route path='/' element={<SignIn />} />
 					<Route path='/sign-up' element={<SignUp />} />
-					<Route path='/home' element={<HomePage />} />
-					<Route path='/empresas' element={<CompaniesPage />} />
-					<Route path='/locais' element={<LocalsPage />} />
+					<Route element={<ProtectedRoutes />}>
+						<Route path='/home' element={<HomePage />} />
+						<Route path='/empresas' element={<CompaniesPage />} />
+						<Route path='/locais' element={<LocalsPage />} />
+					</Route>
 				</Routes>
 			</BrowserRouter>
 		</AuthProvider>
