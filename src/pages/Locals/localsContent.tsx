@@ -12,12 +12,12 @@ import ResponsibleContent, {
 	Responsible
 } from '../../components/ResponsibleContent'
 
-interface Local {
-	id: number
+export interface Local {
+	id?: number
 	name: string
 	address: string
 	companyId: number
-	createdAt: Date
+	createdAt?: Date
 	responsibles: any
 }
 
@@ -32,6 +32,7 @@ function LocalsContent() {
 	useEffect(() => {
 		const promise = api.fetchLocals(auth.access_token)
 		promise.then((response) => {
+			console.log(response.data)
 			setLocalsContent(response.data)
 		})
 	}, [auth, setLocalsContent])

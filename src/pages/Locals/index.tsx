@@ -1,8 +1,9 @@
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { useState } from 'react'
 import ButtonGroup from '../../components/ButtonGroup'
 import { styles } from '../../components/GlobalStyles'
 import LocalsContent from './localsContent'
+import CreateLocal from './localsForm'
 
 function LocalsPage() {
 	const [value, setValue] = useState('locais')
@@ -10,9 +11,12 @@ function LocalsPage() {
 	return (
 		<Box sx={styles.container}>
 			<Box sx={styles.sectionContainer}>
+				<Typography sx={{ ...styles.title, paddingBottom: '0' }}>
+					LOCAIS
+				</Typography>
 				<ButtonGroup value={value} setValue={setValue} />
 				{value === 'locais' && <LocalsContent />}
-				{value === 'adicionar' && <h1>Adicionar</h1>}
+				{value === 'adicionar' && <CreateLocal setValue={setValue}/>}
 			</Box>
 		</Box>
 	)
